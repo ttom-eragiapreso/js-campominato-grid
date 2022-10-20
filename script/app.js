@@ -16,7 +16,7 @@ const container = document.querySelector(".container");
 
 const button = document.querySelector("button");
 
-button.addEventListener("click", createSquares)
+button.addEventListener("click", createSquares);
 
 
 function createSquares(){
@@ -26,6 +26,10 @@ function createSquares(){
     square.classList.add("square");
     square.innerHTML = i;
     container.append(square);
+    square.addEventListener("click", function(){
+      console.log(this.innerHTML);
+      this.classList.add("blue")
+    })
   }
   
 

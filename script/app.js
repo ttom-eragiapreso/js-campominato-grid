@@ -37,29 +37,31 @@ function createSquares(){
     reset.classList.remove("hide");
     // Poi inizializzo una variabile che prenderà in conto la difficoltà scelta dall'utente
     let difficoltà;
-  
-    // Faccio un switch per comparare il valore del select al momento del click e vado a scrivere dentro difficoltà il limite massimo di quadrati che poi andrò a scrivere
+    let width;
+    // Faccio un switch per comparare il valore del select al momento del click e vado a scrivere dentro difficoltà il limite massimo di quadrati che poi andrò a scrivere.
+    // Vado anche ad ogni casistica ad assegnare un valore di width da riusare poi nel loop che crea le caselle.
     switch(select.value){
   
       case "2":
         difficoltà = 82;
-        console.log(difficoltà, select.value)
+        width = "calc(100% / 9)"
         break;
         
       case "3":
         difficoltà = 50;
-        console.log(difficoltà, select.value)
+        width = "calc(100% / 7)"
         break
   
       default:
         difficoltà = 101;
-        console.log(difficoltà, select.value)
+        width = "10%"
         break
   }
     
     // Faccio un loop da 1 fino a il valore trovato con lo switch e per ogni iterazione creo un elemento div, con classe square, che dentro ha il numero al contatore del loop, e infine ad esso stesso gli creo un addEventListener che al click gli assegni una classe per colorarlo e stampi in console il suo numero.
     for(let i = 1; i < difficoltà; i++){
       let square = document.createElement("div");
+      square.style.width = width;
       square.classList.add("square");
       square.innerHTML = i;
       container.append(square);
